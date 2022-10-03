@@ -1,20 +1,39 @@
 package io04.trainschedule.models;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class DataTime {
     private int day;
-    private int month;
-    private int year;
+
+    private String month;
+    private Map<String, Integer> daysOfMonths = new HashMap<>(){{
+        put("January", 31);
+        put("February", 28);
+        put("March", 31);
+        put("April", 30);
+        put("May", 31);
+        put("June", 30);
+        put("July", 31);
+        put("August", 31);
+        put("September", 30);
+        put("October", 31);
+        put("November", 30);
+        put("December", 31);
+    }};
+//    private int year;
     private String weekday;
     private int hour;
     private int minute;
 
-    public DataTime(int day, int month, int year, String weekday, int hour, int minute) {
+    public DataTime(int day, String month, String weekday, int hour, int minute) {
         this.day = day;
         this.month = month;
-        this.year = year;
+//        this.year = year;
         this.weekday = weekday;
         this.hour = hour;
         this.minute = minute;
+
     }
 
     public int getDay() {
@@ -25,21 +44,21 @@ public class DataTime {
         this.day = day;
     }
 
-    public int getMonth() {
+    public String getMonth() {
         return month;
     }
 
-    public void setMonth(int month) {
+    public void setMonth(String month) {
         this.month = month;
     }
 
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
+//    public int getYear() {
+//        return year;
+//    }
+//
+//    public void setYear(int year) {
+//        this.year = year;
+//    }
 
     public String getWeekday() {
         return weekday;
@@ -65,8 +84,12 @@ public class DataTime {
         this.minute = minute;
     }
 
+    public int getIntegerOfTime(){
+        return 0;
+    }
+
     @Override
     public String toString() {
-        return weekday+", "+day+"-"+month+"-"+year+" "+hour+":"+minute;
+        return weekday+", "+day+"-"+month+"-"+hour+":"+minute;
     }
 }
