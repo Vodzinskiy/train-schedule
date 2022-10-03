@@ -1,7 +1,7 @@
-package io04.newsportal.repositories.implementation;
+package io04.trainschedule.repositories.implementation;
 
-import io04.newsportal.models.User;
-import io04.newsportal.repositories.UserRepository;
+import io04.trainschedule.models.User;
+import io04.trainschedule.repositories.UserRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
@@ -10,24 +10,24 @@ import java.util.Map;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
-    private Map<Integer, User> repository;
+    private final Map<Integer, User> repository;
 
     public UserRepositoryImpl() {
         this.repository = new HashMap<>();
     }
 
     @Override
-    public void store(User user) {
+    public void save(User user) {
         repository.put(user.getId(), user);
     }
 
     @Override
-    public User retrieve(int id) {
+    public User findById(int id) {
         return repository.get(id);
     }
 
     @Override
-    public User search(String name) {
+    public User findByName(String name) {
         Collection<User> users = repository.values();
         for (User user : users) {
             if (user.getName().equalsIgnoreCase(name))
@@ -37,9 +37,12 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User delete(int id) {
-        User user = repository.get(id);
-        this.repository.remove(id);
-        return user;
+    public User findByEmail(String email) {
+        Collection<User> users = repository.values();
+        for (User user : users) {
+            if (user.getEmail().equalsIgnoreCase(email))
+                return user;
+        }
+        return null;
     }
 }
