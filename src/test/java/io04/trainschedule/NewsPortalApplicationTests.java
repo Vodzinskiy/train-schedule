@@ -1,4 +1,4 @@
-package io04.newsportal;
+package io04.trainschedule;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

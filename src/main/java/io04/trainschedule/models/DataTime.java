@@ -1,4 +1,4 @@
-package io04.newsportal.models;
+package io04.trainschedule.models;
 
 public class DataTime {
     private int day;
