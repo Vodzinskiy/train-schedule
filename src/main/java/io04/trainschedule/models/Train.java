@@ -1,18 +1,19 @@
 package io04.trainschedule.models;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Train {
     private int id;
     private String name;
-    private DataTime dataTime;
-    private String from;
-    private String to;
+    private HashMap<Station, ArrayList<DataTime>> arrivalStations;
 
-    public Train(int id, String name, DataTime dataTime, String from, String to) {
+
+    public Train(int id, String name, HashMap<Station, ArrayList<DataTime>> arrivalStations) {
         this.id = id;
         this.name = name;
-        this.dataTime = dataTime;
-        this.from = from;
-        this.to = to;
+        this.arrivalStations = arrivalStations;
     }
 
     public int getId() {
@@ -31,27 +32,11 @@ public class Train {
         this.name = name;
     }
 
-    public DataTime getDataTime() {
-        return dataTime;
+    public void setArrivalStations(HashMap<Station, ArrayList<DataTime>> arrivalStations) {
+        this.arrivalStations = arrivalStations;
     }
 
-    public void setDataTime(DataTime dataTime) {
-        this.dataTime = dataTime;
-    }
-
-    public String getFrom() {
-        return from;
-    }
-
-    public void setFrom(String from) {
-        this.from = from;
-    }
-
-    public String getTo() {
-        return to;
-    }
-
-    public void setTo(String to) {
-        this.to = to;
+    public HashMap<Station, ArrayList<DataTime>> getArrivalStations() {
+        return arrivalStations;
     }
 }
