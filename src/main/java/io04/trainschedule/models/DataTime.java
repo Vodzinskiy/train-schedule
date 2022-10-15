@@ -1,32 +1,19 @@
 package io04.trainschedule.models;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class DataTime {
     private int day;
 
-    private String month;
-    private Map<String, Integer> daysOfMonths = new HashMap<>(){{
-        put("January", 31);
-        put("February", 28);
-        put("March", 31);
-        put("April", 30);
-        put("May", 31);
-        put("June", 30);
-        put("July", 31);
-        put("August", 31);
-        put("September", 30);
-        put("October", 31);
-        put("November", 30);
-        put("December", 31);
-    }};
+    private int month;
+
+    private ArrayList<Integer> days = new ArrayList<>(Arrays.asList(31,28,31,30,31,30,31,31,30,31,30,31));
 //    private int year;
     private String weekday;
     private int hour;
     private int minute;
 
-    public DataTime(int day, String month, String weekday, int hour, int minute) {
+    public DataTime(int day, int month, String weekday, int hour, int minute) {
         this.day = day;
         this.month = month;
 //        this.year = year;
@@ -44,21 +31,13 @@ public class DataTime {
         this.day = day;
     }
 
-    public String getMonth() {
+    public int getMonth() {
         return month;
     }
 
-    public void setMonth(String month) {
+    public void setMonth(int month) {
         this.month = month;
     }
-
-//    public int getYear() {
-//        return year;
-//    }
-//
-//    public void setYear(int year) {
-//        this.year = year;
-//    }
 
     public String getWeekday() {
         return weekday;
@@ -85,11 +64,23 @@ public class DataTime {
     }
 
     public int getIntegerOfTime(){
-        return 0;
+        int res = 0;
+        int temp = day;
+        for (int i = 0; i < month;i++) {
+            temp += days.get(i);
+        }
+        temp *= 1440;
+
+        res +=temp;
+        res += hour*60;
+        res += minute;
+
+        return res;
     }
 
     @Override
     public String toString() {
         return weekday+", "+day+"-"+month+"-"+hour+":"+minute;
     }
+
 }
