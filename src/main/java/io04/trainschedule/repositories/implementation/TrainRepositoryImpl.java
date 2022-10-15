@@ -22,6 +22,11 @@ public class TrainRepositoryImpl implements TrainRepository {
     }
 
     @Override
+    public void delete(int id) {
+        repository.remove(id);
+    }
+
+    @Override
     public Train findById(int id) {
         return repository.get(id);
     }

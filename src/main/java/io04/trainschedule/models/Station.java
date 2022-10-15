@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Station {
     private int id;
-    private String name;
+    private final String name;
 
     private ArrayList<Train> trains;
     public Station(int id, String name) {
@@ -23,10 +23,6 @@ public class Station {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public ArrayList<Train> getTrains() {
