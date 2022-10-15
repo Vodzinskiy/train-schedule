@@ -3,7 +3,6 @@ package io04.trainschedule.services.implementation;
 import io04.trainschedule.models.User;
 import io04.trainschedule.repositories.UserRepository;
 import io04.trainschedule.services.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,7 +10,6 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
-    @Autowired
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
