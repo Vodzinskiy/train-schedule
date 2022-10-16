@@ -5,4 +5,7 @@ import io04.trainschedule.models.Station;
 public interface StationService {
     void save(Station station);
     Station findByName(String name);
+    Station findById(int id);
+    void delete(int id);
+    void editName(int id, String newName);
 }

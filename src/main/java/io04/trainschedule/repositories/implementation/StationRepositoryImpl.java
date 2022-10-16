@@ -32,4 +32,14 @@ public class StationRepositoryImpl implements StationRepository {
         }
         return null;
     }
+
+    @Override
+    public Station findById(int id) {
+        return repository.get(id);
+    }
+
+    @Override
+    public void delete(int id) {
+        repository.remove(id);
+    }
 }
