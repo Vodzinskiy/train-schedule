@@ -1,18 +1,13 @@
 <!DOCTYPE html>
-<html lang="uk" dir="ltr">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
   <title>Розклад поїздів, залізничний розклад онлайн — наявність, ціни та місця</title>
   <meta name="description" content="Розклад поїздів онлайн! Не втомлюйте себе дзвінками у довідкові залізничних вокзалів, тепер отримати необхідну інформацію можна за допомогою нашого сервісу розкладу поїздів не виходячи з дому." />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  <link rel='stylesheet' href='css/2.css' type='text/css' />
-  <link href="css/search.css" rel="stylesheet" media="all">
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="author" content="colorlib.com">
-
-  <link href="css/main.css" rel="stylesheet" />
+      <link rel="stylesheet" th:href="@{/css/2.css}">
+      <link rel="stylesheet" th:href="@{/css/search.css}">
+      <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
 
   <body data-app class="theme-default">
