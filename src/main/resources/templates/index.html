@@ -24,20 +24,20 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab1">
-                            <form method="POST" action="#">
+                            <form method="POST" action="/trains">
                                 <div class="input-group">
                                     <label class="label">Звідки</label>
-                                    <input class="input--style-1" type="text" name="address" placeholder="Місто" required="required">
+                                    <input class="input--style-1" type="text" name="stationOfDeparture" placeholder="Місто" required="required">
                                 </div>
                                 <div class="input-group">
                                     <label class="label">Куди</label>
-                                    <input class="input--style-1" type="text" name="address" placeholder="Місто" required="required">
+                                    <input class="input--style-1" type="text" name="stationOfArrival" placeholder="Місто" required="required">
                                 </div>
                                 <div class="input-group">
                                     <label class="label">Дата відправлення</label>
-                                    <input class="input--style-1" type="text" name="check-in" placeholder="mm.dd.yyyy" required="required">
+                                    <input class="input--style-1" type="text" name="dateTime" placeholder="mm.dd.yyyy" required="required">
                                 </div>
-                                <button class="btn-submit" type="submit">Пошук</button>
+                                <button class="btn-submit" onclick="window.location.href='/trains'" type="submit">Пошук</button>
                             </form>
                         </div>
                     </div>
@@ -50,16 +50,6 @@
     <div class="row">
       <div class="breadcrumbs col-24 mb-3">  
 
-</div><div class="content-block col-24 col-xl-18 ml-auto mr-auto mb-3">  <h3 class="h2 mb-2">
-    Розклад потягів онлайн, залізничний розклад по Україні  </h3>
-
-
-  <div class="block f-top-left f--column pt-1 pb-1 pl-2 pr-2 app-static-wrapper">
-    
-    <div class="typography">
-              Володіючи повною інформацією про розклад потягів, ви зможете скласти точний графік подорожі та вчасно зустріти близьких, колег, родичів або друзів. За допомогою нашого сервісу ви зможете легко дізнатися повний розклад потягів по станціях, останні зміни їхнього руху, інформацію про майбутні коригування.                          <p></p>
-          </div>
-  </div>
 </div><div class="popular-directions-around-country col-24 col-xl-18 ml-auto mr-auto mb-1">  <h3 class="mb-2">Популярні напрямки по Україні</h3>
 
   <div class="row">

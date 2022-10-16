@@ -205,6 +205,7 @@ a:active {
   -o-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
   transition: all 0.4s ease;
+
 }
 
 .btn-submit:hover {

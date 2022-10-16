@@ -4,7 +4,7 @@ import io04.trainschedule.models.Train;
 import io04.trainschedule.repositories.TrainRepository;
 import org.springframework.stereotype.Repository;
 
-
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,5 +29,15 @@ public class TrainRepositoryImpl implements TrainRepository {
     @Override
     public Train findById(int id) {
         return repository.get(id);
+    }
+
+    @Override
+    public Train findByName(String name) {
+        Collection<Train> trains = repository.values();
+            for (Train train : trains) {
+                if (train.getName().equalsIgnoreCase(name))
+                    return train;
+                }
+        return null;
     }
 }

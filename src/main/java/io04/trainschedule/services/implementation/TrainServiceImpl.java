@@ -44,9 +44,16 @@ public class TrainServiceImpl implements TrainService {
 
     }
 
+    @Override
+    public Train findByName(String name) {
+        return trainRepository.findByName(name);
+    }
+
 
     @Override
     public Train findById(int id) {
         return trainRepository.findById(id);
     }
+
+
 }

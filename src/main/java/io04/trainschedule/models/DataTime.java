@@ -6,12 +6,10 @@ public class DataTime {
     private final int day, month, hour, minute;
 
     private final ArrayList<Integer> days = new ArrayList<>(Arrays.asList(31,28,31,30,31,30,31,31,30,31,30,31));
-    private final String weekday;
 
-    public DataTime(int day, int month, String weekday, int hour, int minute) {
+    public DataTime(int day, int month, int hour, int minute) {
         this.day = day;
         this.month = month;
-        this.weekday = weekday;
         this.hour = hour;
         this.minute = minute;
 
@@ -31,9 +29,18 @@ public class DataTime {
         return res;
     }
 
-    @Override
-    public String toString() {
-        return weekday+", "+day+"-"+month+"-"+hour+":"+minute;
+    public static DataTime stringToDataTime(String data) {
+
+        String[] temp =  data.split("[: .]");
+        int[] dateTime = new int[4];
+        for(int i = 0; i < temp.length; i++){
+            dateTime[i] = Integer.parseInt(temp[i]);
+        }
+        return new DataTime(dateTime[2], dateTime[3], dateTime[0], dateTime[1]);
     }
 
+    @Override
+    public String toString() {
+        return day+"-"+month+"-"+hour+":"+minute;
+    }
 }

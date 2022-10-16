@@ -12,4 +12,5 @@ public interface TrainService {
     void delete(int id);
     Train findById(int id);
     void editTrain(int id, String name, HashMap<Station, ArrayList<DataTime>> schedule);
+    Train findByName(String name);
 }

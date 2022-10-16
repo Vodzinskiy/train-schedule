@@ -6,4 +6,5 @@ public interface TrainRepository {
     void save(Train train);
     void delete(int id);
     Train findById(int id);
+    Train findByName(String name);
 }
