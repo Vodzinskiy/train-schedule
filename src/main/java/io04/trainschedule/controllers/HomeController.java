@@ -33,14 +33,21 @@ public class HomeController {
 
     @GetMapping("/trains")
     public String trains(
-            @RequestParam(name = "stationOfDeparture") String stationOfDeparture,
-            @RequestParam(name = "stationOfArrival") String stationOfArrival,
-            @RequestParam(name = "dateTime") String dateTime,
+           String stationOfDeparture,
+           String stationOfArrival,
+           String dateTime,
             Model model){
+//        String stationOfDeparture = "Вінниця";
+//        String stationOfArrival = "Київ";
+//        String dateTime = "19:30 15:10";
+
 
         List<Train> trains = trainFinderService.getSuitableTrain(stationService.findByName(stationOfDeparture), stationService.findByName(stationOfArrival), DataTime.stringToDataTime(dateTime));
-
-        return trains.toString();
+        model.addAttribute("stationOfDeparture", stationOfDeparture);
+        model.addAttribute("stationOfArrival", stationOfArrival);
+        model.addAttribute("dateTime", dateTime);
+        model.addAttribute("trains", trains);
+        return "trains";
     }
 
 

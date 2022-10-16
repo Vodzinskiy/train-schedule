@@ -15,14 +15,17 @@ public class TrainFinderServiceImpl implements TrainFinderService {
 
     @Override
     public ArrayList<Train> getSuitableTrain(Station stationOfDeparture, Station stationOfArrival, DataTime dataTime) {
-            ArrayList<Train> resultTrains = new ArrayList<>();
-            for (Train train : stationOfDeparture.getTrains()){
-                if (train.getArrivalStations().containsKey(stationOfArrival) && dataTime.getIntegerOfTime()>train.getDepTime(stationOfDeparture)){
+        ArrayList<Train> resultTrains = new ArrayList<>();
+        if (!stationOfDeparture.getTrains().isEmpty()) {
+            for (Train train : stationOfDeparture.getTrains()) {
+                if (train.getArrivalStations().containsKey(stationOfArrival) && dataTime.getIntegerOfTime() > train.getDepTime(stationOfDeparture)) {
                     resultTrains.add(train);
                 }
             }
             Sorter sorter = new SortByTime();
-    
+
             return sorter.sort(resultTrains, stationOfDeparture);
         }
+    return null;
+    }
 }
