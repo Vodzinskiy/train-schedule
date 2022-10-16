@@ -11,10 +11,6 @@ import java.util.Map;
 @Repository
 public class StationRepositoryImpl implements StationRepository {
 
-    public Map<Integer, Station> getRepository() {
-        return repository;
-    }
-
     private final Map<Integer, Station> repository;
 
     public StationRepositoryImpl() {
@@ -35,5 +31,15 @@ public class StationRepositoryImpl implements StationRepository {
                 return station;
         }
         return null;
+    }
+
+    @Override
+    public Station findById(int id) {
+        return repository.get(id);
+    }
+
+    @Override
+    public void delete(int id) {
+        repository.remove(id);
     }
 }

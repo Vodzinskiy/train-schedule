@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Station {
     private int id;
-    private final String name;
+    private String name;
 
     private final ArrayList<Train> trains;
     public Station(int id, String name) {
@@ -25,6 +25,10 @@ public class Station {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public ArrayList<Train> getTrains() {
         return trains;
     }
@@ -32,6 +36,10 @@ public class Station {
     public void addTrain(Train train){
         trains.add(train);
     }
+
+    public void removeTrain(Train train){trains.remove(train);}
+
+
 
     @Override
     public String toString() {

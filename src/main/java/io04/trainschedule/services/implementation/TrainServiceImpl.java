@@ -25,18 +25,23 @@ public class TrainServiceImpl implements TrainService {
 
     @Override
     public void delete(int id) {
+        Train train = trainRepository.findById(id);
+        for(Station station : train.getArrivalStations().keySet()){
+            station.removeTrain(train);
+        }
         trainRepository.delete(id);
     }
 
     @Override
     public void editTrain(int id, String newName, HashMap<Station, ArrayList<DataTime>> schedule){
         Train train = trainRepository.findById(id);
-        for(Station station : schedule.keySet()){
-            station.getTrains().remove(train);
+        for(Station station : train.getArrivalStations().keySet()){
+            station.removeTrain(train);
         }
         train.setName(newName);
         train.setArrivalStations(schedule);
         train.addTrainToStations();
+
     }
 
 
