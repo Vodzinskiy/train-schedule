@@ -6,14 +6,17 @@ import java.util.HashMap;
 
 public class Train {
     private int id;
-    private final String name;
-    private final HashMap<Station, ArrayList<DataTime>> arrivalStations;
+
+    private String name;
+
+    private HashMap<Station, ArrayList<DataTime>> arrivalStations;
 
 
     public Train(int id, String name, HashMap<Station, ArrayList<DataTime>> arrivalStations) {
         this.id = id;
         this.name = name;
         this.arrivalStations = arrivalStations;
+        addTrainToStations();
     }
 
     public int getId() {
@@ -28,12 +31,26 @@ public class Train {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public HashMap<Station, ArrayList<DataTime>> getArrivalStations() {
         return arrivalStations;
     }
 
-    public int getDepTime(Station station)  {
-       return arrivalStations.get(station).get(1).getIntegerOfTime();
+    public void setArrivalStations(HashMap<Station, ArrayList<DataTime>> arrivalStations) {
+        this.arrivalStations = arrivalStations;
+    }
+
+    public int getDepTime(Station station) {
+        return arrivalStations.get(station).get(1).getIntegerOfTime();
+    }
+
+    public void addTrainToStations() {
+        for (Station station : arrivalStations.keySet()) {
+            station.addTrain(this);
+        }
     }
 
     @Override
@@ -41,7 +58,7 @@ public class Train {
         return "Train{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", arrivalStations=" + arrivalStations +
+                ", arrivalStations=" + arrivalStations.toString() +
                 '}';
     }
 }

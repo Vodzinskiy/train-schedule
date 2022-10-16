@@ -23,4 +23,19 @@ public class StationServiceImpl implements StationService {
     public Station findByName(String name) {
        return stationRepository.findByName(name);
     }
+
+    @Override
+    public Station findById(int id) {
+        return null;
+    }
+
+    @Override
+    public void delete(int id) {
+
+    }
+
+    @Override
+    public void editName(int id, String newName) {
+
+    }
 }

@@ -11,6 +11,10 @@ import java.util.Map;
 @Repository
 public class StationRepositoryImpl implements StationRepository {
 
+    public Map<Integer, Station> getRepository() {
+        return repository;
+    }
+
     private final Map<Integer, Station> repository;
 
     public StationRepositoryImpl() {

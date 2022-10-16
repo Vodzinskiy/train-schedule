@@ -6,7 +6,7 @@ public class Station {
     private int id;
     private final String name;
 
-    private ArrayList<Train> trains;
+    private final ArrayList<Train> trains;
     public Station(int id, String name) {
         this.id = id;
         this.name = name;
@@ -29,7 +29,14 @@ public class Station {
         return trains;
     }
 
-    public void setTrains(ArrayList<Train> trains) {
-        this.trains = trains;
+    public void addTrain(Train train){
+        trains.add(train);
+    }
+
+    @Override
+    public String toString() {
+        return "Station{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }
