@@ -23,7 +23,7 @@ public class DataTime {
         }
         temp *= 1440;
 
-        res +=temp;
+        res += temp;
         res += hour*60;
         res += minute;
         return res;
@@ -41,6 +41,7 @@ public class DataTime {
 
     @Override
     public String toString() {
-        return day+"-"+month+"-"+hour+":"+minute;
+        return day+"."+month+" "+hour+":"+minute;
     }
+    
 }

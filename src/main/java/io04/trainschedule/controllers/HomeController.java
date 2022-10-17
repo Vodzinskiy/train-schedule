@@ -1,17 +1,19 @@
 package io04.trainschedule.controllers;
 
+
 import io04.trainschedule.models.DataTime;
 import io04.trainschedule.models.Train;
 import io04.trainschedule.services.StationService;
 import io04.trainschedule.services.TrainFinderService;
-import io04.trainschedule.services.implementation.TrainServiceImpl;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+
+
 
 @Controller
 public class HomeController {
@@ -23,8 +25,6 @@ public class HomeController {
     @Autowired
     TrainFinderService trainFinderService;
 
-    @Autowired
-    TrainServiceImpl trainService;
 
     @Autowired
     StationService stationService;
@@ -37,22 +37,20 @@ public class HomeController {
            String stationOfArrival,
            String dateTime,
             Model model){
-//        String stationOfDeparture = "Вінниця";
-//        String stationOfArrival = "Київ";
-//        String dateTime = "19:30 15:10";
-
 
         List<Train> trains = trainFinderService.getSuitableTrain(stationService.findByName(stationOfDeparture), stationService.findByName(stationOfArrival), DataTime.stringToDataTime(dateTime));
-        model.addAttribute("stationOfDeparture", stationOfDeparture);
-        model.addAttribute("stationOfArrival", stationOfArrival);
-        model.addAttribute("dateTime", dateTime);
-        model.addAttribute("trains", trains);
+        StringBuilder res=new StringBuilder();
+        for(Train train : trains) {
+            res.append(train.toString());
+            res.append(" відправляється з станції ")
+                    .append(stationOfDeparture).append(" ")
+                    .append(train.getArrivalStations().get(stationService.findByName(stationOfDeparture)).get(1).toString().replaceAll(":0",":00"))
+                    .append("\n");
+        }
+        model.addAttribute("trains", res.toString());
         return "trains";
     }
 
 
-    @GetMapping("/admin")
-    public String adminHtml(){
-        return "admin";
-    }
+
 }

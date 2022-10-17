@@ -53,12 +53,13 @@ public class Train {
         }
     }
 
+
     @Override
     public String toString() {
-        return "Train{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", arrivalStations=" + arrivalStations.toString() +
-                '}';
+        return "Потяг: " + name;
     }
 }
+
+
+
+ //        "відправка з станції " + station.toString() + " о " + arrivalStations.get(station).get(1).toString() + "\n"
