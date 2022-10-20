@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
-
-
 @Controller
 public class HomeController {
     @GetMapping("/")
@@ -28,8 +26,6 @@ public class HomeController {
 
     @Autowired
     StationService stationService;
-
-
 
     @GetMapping("/trains")
     public String trains(
