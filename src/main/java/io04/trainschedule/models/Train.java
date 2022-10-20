@@ -45,7 +45,7 @@ public class Train {
 
     public int getDepTime(Station station) {
         return arrivalStations.get(station).get(1).getIntegerOfTime();
-    }
+    }    
     public int getArrTime(Station station) {
         return arrivalStations.get(station).get(0).getIntegerOfTime();
     }
@@ -62,7 +62,3 @@ public class Train {
         return "Потяг: " + name;
     }
 }
-
-
-
- //        "відправка з станції " + station.toString() + " о " + arrivalStations.get(station).get(1).toString() + "\n"

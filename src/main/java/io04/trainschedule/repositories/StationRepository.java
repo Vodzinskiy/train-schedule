@@ -11,6 +11,5 @@ public interface StationRepository {
     Station findByName(String name);
     Station findById(int id);
     void delete(int id);
-
     Map<Integer, Station> findAll();
 }

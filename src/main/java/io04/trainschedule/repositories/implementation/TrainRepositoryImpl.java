@@ -10,10 +10,9 @@ import java.util.Map;
 
 @Repository
 public class TrainRepositoryImpl implements TrainRepository {
-    private final Map<Integer, Train> repository;
+    private static final Map<Integer, Train> repository = new HashMap<>();
 
     public TrainRepositoryImpl() {
-        this.repository = new HashMap<>();
     }
 
     @Override
@@ -39,5 +38,10 @@ public class TrainRepositoryImpl implements TrainRepository {
                     return train;
                 }
         return null;
+    }
+
+    @Override
+    public Map<Integer, Train> findAll() {
+        return repository;
     }
 }

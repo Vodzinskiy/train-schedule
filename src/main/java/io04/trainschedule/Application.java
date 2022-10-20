@@ -44,14 +44,14 @@ public class Application {
         HashMap<Station, ArrayList<DataTime>> train2 = new HashMap<>();
         train2.put(vin, new ArrayList<>(Arrays.asList(new DataTime(15,10,19,30),new DataTime(15,10,20,0))));
         train2.put(odesa, new ArrayList<>(Arrays.asList(new DataTime(15,10,21,0),new DataTime(15,10,21,0))));
-        Train train22 = new Train(0,"Вінниця-Одеса",train2);
+        Train train22 = new Train(1,"Вінниця-Одеса",train2);
         trainRepository.save(train22);
 
         HashMap<Station, ArrayList<DataTime>> train3 = new HashMap<>();
         train3.put(kherson, new ArrayList<>(Arrays.asList(new DataTime(15,10,19,30),new DataTime(15,10,20,0))));
         train3.put(odesa, new ArrayList<>(Arrays.asList(new DataTime(15,10,14,0),new DataTime(15,10,14,0))));
         train3.put(vin, new ArrayList<>(Arrays.asList(new DataTime(15,10,19,30),new DataTime(15,10,20,0))));
-        Train train33 = new Train(0,"Херсон-Вінниця",train3);
+        Train train33 = new Train(2,"Херсон-Вінниця",train3);
         trainRepository.save(train33);
     }
 }

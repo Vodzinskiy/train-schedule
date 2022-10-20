@@ -18,7 +18,7 @@ public class TrainFinderServiceImpl implements TrainFinderService {
         ArrayList<Train> resultTrains = new ArrayList<>();
         try {
             for (Train train : stationOfDeparture.getTrains()) {
-                if (train.getArrivalStations().containsKey(stationOfArrival) && dataTime.getIntegerOfTime() < train.getDepTime(stationOfDeparture) && train.getArrTime(stationOfArrival) > train.getDepTime(stationOfDeparture)) {
+                if (train.getArrivalStations().containsKey(stationOfArrival) && dataTime.getIntegerOfTime() <= train.getDepTime(stationOfDeparture) && train.getArrTime(stationOfArrival) > train.getDepTime(stationOfDeparture)) {
                     resultTrains.add(train);
                 }
             }

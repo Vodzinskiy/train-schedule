@@ -5,6 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-<span style="white-space: pre-line" th:text="${trains}"/>
+    <span style="white-space: pre-line" th:text="${#lists.size(trains) > 0 ? trains : 'Trains not found'}"/>
 </body>
 </html>

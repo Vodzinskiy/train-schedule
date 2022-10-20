@@ -6,26 +6,32 @@ import io04.trainschedule.models.Train;
 import io04.trainschedule.services.StationService;
 import io04.trainschedule.services.TrainFinderService;
 
+import io04.trainschedule.services.TrainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Controller
 public class HomeController {
-    @GetMapping("/")
-    public String mainHtml(){
-        return "index";
-    }
-
     @Autowired
     TrainFinderService trainFinderService;
 
-
     @Autowired
     StationService stationService;
+
+    @Autowired
+    TrainService trainService;
+
+    @GetMapping("/")
+    public String mainHtml(Model model){
+        model.addAttribute("trains", trainService.findAll().toString());
+        return "index";
+    }
+
 
     @GetMapping("/trains")
     public String trains(
@@ -44,9 +50,12 @@ public class HomeController {
                     .append("\n");
         }
         model.addAttribute("trains", res.toString());
-        return "trains";
+        return "index";
     }
 
-
+    @RequestMapping("/admin")
+    public String admin() {
+        return "admin";
+    }
 
 }

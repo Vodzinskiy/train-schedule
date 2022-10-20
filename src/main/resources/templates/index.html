@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <ul class="tab-list">
                         <li class="tab-list__item active">
-                            <a class="tab-list__link" href="#tab1" data-toggle="tab">Пошук за маршрутом</a>
+                            <a class="tab-list__link" href="/" data-toggle="tab">Пошук за маршрутом</a>
                         </li>
                     </ul>
                     <div class="tab-content">
@@ -44,6 +44,8 @@
                 </div>
             </div>
         </div>
+
+        <span style="white-space: pre-line" th:text="${#lists.size(trains) > 0 ? trains : 'Trains not found'}"/>
 
 
   <div class="container">

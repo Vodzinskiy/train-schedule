@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class TrainServiceImpl implements TrainService {
@@ -49,11 +50,18 @@ public class TrainServiceImpl implements TrainService {
         return trainRepository.findByName(name);
     }
 
+    @Override
+    public Map<Integer, Train> findAll() {
+        return trainRepository.findAll();
+    }
+
 
     @Override
     public Train findById(int id) {
         return trainRepository.findById(id);
     }
+    
+    
 
 
 }

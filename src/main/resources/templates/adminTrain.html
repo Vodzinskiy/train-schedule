@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trains</title>
+</head>
+<body>
+ <span style="white-space: pre-line" th:text="${train}"></span>
+    <form method="GET" action="/admin/train">
+        <label>
+            <input type="text" name="trainId" placeholder="ID">
+        </label>
+
+        <label>
+            <input type="text" name="trainName" placeholder="Назва">
+        </label>
+
+        <tr>
+            <td><input type="submit" name="add" value="Добавити потяг" /></td>
+            <td><input type="submit" name="edit" value="Редагувати потяг за ID" /></td>
+            <td><input type="submit" name="delete" value="Видалити потяг за ID" /></td>
+        </tr>
+
+        <br>
+        <label>
+            <select name="stations" >
+                <option th:each="station:${stations}" th:value="${station}" th:text="${station}"></option>
+            </select>
+        </label>
+        <label>
+            <input type="text" name="timeDep" placeholder="Чаc відправки">
+        </label>
+
+        <label>
+            <input type="text" name="timeArr" placeholder="Час прибуття">
+        </label>
+        <tr>
+            <td><input type="submit" name="addStation" value="Добавити станцію" /></td>
+            <td><input type="submit" name="deleteStation" value="Видалити станцію" /></td>
+        </tr>
+    </form>
+</body>
+</html>

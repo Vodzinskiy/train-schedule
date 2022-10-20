@@ -11,5 +11,5 @@ public interface StationService {
     void delete(int id);
     void editName(int id, String newName);
 
-    Map<Integer, Station> findAll();
+    Map<Integer, Station> findAll();    
 }
