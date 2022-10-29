@@ -38,7 +38,7 @@ public class HomeController {
 
 
     @GetMapping("/trains")
-    public String trains(
+    public String trains (
            String stationOfDeparture,
            String stationOfArrival,
            String dateTime,

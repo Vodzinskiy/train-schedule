@@ -47,6 +47,11 @@
                     </div>
                 </div>
             </div>
+
+                <div class="train-group" th:each="train: ${trains}">
+                    <a class="train-text" th:href="'trains/' + ${train.getId()}" th:text="${train}"></a>
+                </div>
+
         </div>
     </div>
 

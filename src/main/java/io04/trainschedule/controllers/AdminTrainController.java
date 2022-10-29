@@ -34,6 +34,7 @@ public class AdminTrainController {
 
         model.addAttribute("trainsName", trainService.findAll().toString());
         model.addAttribute("stations", temp);
+        model.addAttribute("trains",trainService.findAll().values());
         return "adminTrain";
     }
 
