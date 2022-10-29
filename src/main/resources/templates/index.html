@@ -59,3 +59,11 @@
 
       </body>
 </html>
+
+<!--
+<div th:switch="${#lists.size(trains)}">
+    <p th:case="0">Trains not found</p>
+    <div th:case="*" th:each="train: ${trains}">
+        <a th:href="'trains/' + ${train}" th:text="${train.getName()}"></a>
+    </div>
+</div>-->

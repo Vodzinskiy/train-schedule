@@ -36,7 +36,7 @@ public class DataTime {
         for(int i = 0; i < temp.length; i++){
             dateTime[i] = Integer.parseInt(temp[i]);
         }
-        return new DataTime(dateTime[2], dateTime[3], dateTime[0], dateTime[1]);
+        return new DataTime(dateTime[0], dateTime[1], dateTime[2], dateTime[3]);
     }
 
     @Override

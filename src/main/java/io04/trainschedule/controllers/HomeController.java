@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -28,7 +29,10 @@ public class HomeController {
 
     @GetMapping("/")
     public String mainHtml(Model model){
-        model.addAttribute("trains", trainService.findAll().toString());
+
+
+
+        model.addAttribute("trains", trainService.findAll().values());
         return "index";
     }
 
@@ -39,23 +43,21 @@ public class HomeController {
            String stationOfArrival,
            String dateTime,
             Model model){
-
         List<Train> trains = trainFinderService.getSuitableTrain(stationService.findByName(stationOfDeparture), stationService.findByName(stationOfArrival), DataTime.stringToDataTime(dateTime));
-        StringBuilder res=new StringBuilder();
-        for(Train train : trains) {
-            res.append(train.toString());
-            res.append(" відправляється з станції ")
-                    .append(stationOfDeparture).append(" ")
-                    .append(train.getArrivalStations().get(stationService.findByName(stationOfDeparture)).get(1).toString().replaceAll(":0",":00"))
-                    .append("\n");
-        }
-        model.addAttribute("trains", res.toString());
+        model.addAttribute("trains", trains);
+        System.out.println(trains);
         return "index";
+    }
+
+    @GetMapping("/trains/{id}")
+    public String train(@PathVariable String id, Model model) {
+        Train train = trainService.findById(Integer.parseInt(id));
+        model.addAttribute("trainStations", train.getSortedStations());
+        return "train";
     }
 
     @RequestMapping("/admin")
     public String admin() {
         return "admin";
     }
-
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit trains</title>
+</head>
+<body>
+<form>
+    <br>
+    <label>
+        <select name="stations" >
+            <option th:each="station:${stations}" th:value="${station}" th:text="${station}"></option>
+        </select>
+    </label>
+
+    <label>
+        <input type="text" name="timeArr" placeholder="Час прибуття">
+    </label>
+    <label>
+        <input type="text" name="timeDep" placeholder="Чаc відправки">
+    </label>
+    <tr>
+        <td><input type="submit" name="addStation" value="Добавити станцію" /></td>
+        <td><input type="submit" name="deleteStation" value="Видалити станцію" /></td>
+    </tr>
+
+
+
+    <br>
+    <ol>
+        <li th:each="key: ${trainStations.keySet()}">
+            <span th:text="${key}"></span> : Час прибуття: <span th:text="${trainStations.get(key).get(0)}"></span> Час відправки: <span th:text="${trainStations.get(key).get(1)}"></span>
+
+        </li>
+    </ol>
+    <br>
+
+</form>
+<button class="btn-submit" onclick="window.location.href='/admin/train'" type="submit">Готово</button>
+</body>
+</html>

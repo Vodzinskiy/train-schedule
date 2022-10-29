@@ -5,10 +5,10 @@
     <title>Trains</title>
 </head>
 <body>
- <span style="white-space: pre-line" th:text="${train}"></span>
-    <form method="GET" action="/admin/train">
+ <span style="white-space: pre-line" th:text="${trainsName}"></span>
+    <form>
         <label>
-            <input type="text" name="trainId" placeholder="ID">
+            <input type="text" name="trainId" id="trainId" placeholder="ID">
         </label>
 
         <label>
@@ -17,27 +17,15 @@
 
         <tr>
             <td><input type="submit" name="add" value="Добавити потяг" /></td>
-            <td><input type="submit" name="edit" value="Редагувати потяг за ID" /></td>
+            <td><input type="button" onclick="redirect()" value="Редагувати потяг"></td>
             <td><input type="submit" name="delete" value="Видалити потяг за ID" /></td>
         </tr>
-
-        <br>
-        <label>
-            <select name="stations" >
-                <option th:each="station:${stations}" th:value="${station}" th:text="${station}"></option>
-            </select>
-        </label>
-        <label>
-            <input type="text" name="timeDep" placeholder="Чаc відправки">
-        </label>
-
-        <label>
-            <input type="text" name="timeArr" placeholder="Час прибуття">
-        </label>
-        <tr>
-            <td><input type="submit" name="addStation" value="Добавити станцію" /></td>
-            <td><input type="submit" name="deleteStation" value="Видалити станцію" /></td>
-        </tr>
+        <script type="text/javascript">
+            function redirect() {
+                let url = document.getElementById("trainId").value;
+                window.location.href = "/admin/train/" + url;
+            }
+        </script>
     </form>
 </body>
 </html>
