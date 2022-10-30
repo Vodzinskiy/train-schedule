@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stations</title>
+</head>
+<body>
+    <span style="white-space: pre-line" th:text="${station}"></span>
+    <form method="GET" action="/admin/station">
+        <label>
+            <input type="text" name="stationId" placeholder="ID" required="required">
+        </label>
+
+        <label>
+            <input type="text" name="stationName" placeholder="Назва" required="required">
+        </label>
+
+        <tr>
+            <td><input type="submit" name="add" value="Добавити станцію" /></td>
+            <td><input type="submit" name="edit" value="Редагувати станцію за ID" /></td>
+            <td><input type="submit" name="delete" value="Видалити станцію за ID" /></td>
+        </tr>
+
+    </form>
+
+</body>
+</html>

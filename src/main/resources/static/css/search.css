@@ -205,6 +205,7 @@ a:active {
   -o-transition: all 0.4s ease;
   -moz-transition: all 0.4s ease;
   transition: all 0.4s ease;
+
 }
 
 .btn-submit:hover {
@@ -297,7 +298,7 @@ a:active {
   padding: 0;
 }
 
-.daterangepicker .calendar-table .table-condensed thead tr:nth-child(2) th {
+.daterangepicker .calendar-table .table-cocndensed thead tr:nth-child(2) th {
   padding-top: 27px;
   padding-bottom: 17px;
 }
@@ -411,7 +412,7 @@ button {
   cursor: pointer;
 }
 
-.input-group {
+.input-group1 {
   position: relative;
   margin-bottom: 15px;
   background: #ffffff;
@@ -465,39 +466,14 @@ button {
 }
 
 .input--style-1 {
+  background-color: #fff !important;
+
+
   font-size: 16px;
   padding: 5px 0;
   padding-top: 0px;
-  text-transform: uppercase;
-  color: #808080;
   font-family: "Poppins", "Arial", "Helvetica Neue", sans-serif;
-}
 
-.input--style-1::-webkit-input-placeholder {
-  /* WebKit, Blink, Edge */
-  color: #808080;
-}
-
-.input--style-1:-moz-placeholder {
-  /* Mozilla Firefox 4 to 18 */
-  color: #808080;
-  opacity: 1;
-}
-
-.input--style-1::-moz-placeholder {
-  /* Mozilla Firefox 19+ */
-  color: #808080;
-  opacity: 1;
-}
-
-.input--style-1:-ms-input-placeholder {
-  /* Internet Explorer 10-11 */
-  color: #808080;
-}
-
-.input--style-1:-ms-input-placeholder {
-  /* Microsoft Edge */
-  color: #808080;
 }
 
 /* CHECKBOX */
@@ -961,6 +937,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 .card-3 {
   background: rgba(17, 25, 54, 0.9);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.card-list {
+  background: cyan;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;

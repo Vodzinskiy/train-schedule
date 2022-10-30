@@ -11,12 +11,11 @@ import java.util.Map;
 @Repository
 public class StationRepositoryImpl implements StationRepository {
 
-    private final Map<Integer, Station> repository;
+    private static final Map<Integer, Station> repository = new HashMap<>();
 
     public StationRepositoryImpl() {
-        this.repository = new HashMap<>();
-    }
 
+    }
 
     @Override
     public void save(Station station) {
@@ -41,5 +40,10 @@ public class StationRepositoryImpl implements StationRepository {
     @Override
     public void delete(int id) {
         repository.remove(id);
+    }
+
+    @Override
+    public Map<Integer, Station> findAll() {
+        return repository;
     }
 }

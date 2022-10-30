@@ -1,8 +1,7 @@
 package io04.trainschedule.models;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 public class Train {
     private int id;
@@ -45,6 +44,9 @@ public class Train {
 
     public int getDepTime(Station station) {
         return arrivalStations.get(station).get(1).getIntegerOfTime();
+    }    
+    public int getArrTime(Station station) {
+        return arrivalStations.get(station).get(0).getIntegerOfTime();
     }
 
     public void addTrainToStations() {
@@ -53,12 +55,32 @@ public class Train {
         }
     }
 
+    public void addStation(Station station, DataTime arrTime, DataTime depTime){
+        arrivalStations.put(station, new ArrayList<>(Arrays.asList(arrTime, depTime)));
+    }
+
+    public void removeStation(Station station) {
+        arrivalStations.remove(station);
+    }
+
+    public HashMap<Station, ArrayList<DataTime>> getSortedStations(){
+        HashMap<Station, ArrayList<DataTime>> trainStations = this.arrivalStations;
+        List<Map.Entry<Station, ArrayList<DataTime>>> list = new LinkedList<>(trainStations.entrySet());
+
+        // Sort the list
+        list.sort(Comparator.comparingInt(o -> (o.getValue().get(0).getIntegerOfTime())));
+
+        // put data from sorted list to hashmap
+        HashMap<Station, ArrayList<DataTime>> temp = new LinkedHashMap<>();
+        for (Map.Entry<Station, ArrayList<DataTime>> aa : list) {
+            temp.put(aa.getKey(), aa.getValue());
+        }
+        return temp;
+    }
+
+
     @Override
     public String toString() {
-        return "Train{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", arrivalStations=" + arrivalStations.toString() +
-                '}';
+        return name;
     }
 }

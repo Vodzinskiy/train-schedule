@@ -6,6 +6,8 @@ import io04.trainschedule.repositories.StationRepository;
 import io04.trainschedule.services.StationService;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service
 public class StationServiceImpl implements StationService {
 
@@ -48,5 +50,10 @@ public class StationServiceImpl implements StationService {
             }
         }
         stationRepository.findById(id).setName(newName);
+    }
+
+    @Override
+    public Map<Integer, Station> findAll() {
+        return stationRepository.findAll();
     }
 }

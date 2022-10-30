@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trains</title>
+</head>
+<body>
+<form>
+<br>
+<ol>
+    <li th:each="key: ${trainStations.keySet()}">
+        <span th:text="${key}"></span> : Час прибуття: <span th:text="${trainStations.get(key).get(0)}"></span> Час відправки: <span th:text="${trainStations.get(key).get(1)}"></span>
+
+    </li>
+</ol>
+<br>
+
+</form>
+<button class="btn-submit" onclick="window.location.href='/'" type="submit">Готово</button>
+</body>
+</html>

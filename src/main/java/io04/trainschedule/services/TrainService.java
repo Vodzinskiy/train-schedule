@@ -6,10 +6,13 @@ import io04.trainschedule.models.Train;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public interface TrainService {
     void save(Train train);
     void delete(int id);
     Train findById(int id);
     void editTrain(int id, String name, HashMap<Station, ArrayList<DataTime>> schedule);
+    Train findByName(String name);
+    Map<Integer, Train> findAll();
 }
