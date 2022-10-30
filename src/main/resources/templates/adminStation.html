@@ -3,25 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Stations</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <link rel="stylesheet" th:href="@{/css/trains_and_admin.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </head>
-<body>
-    <span style="white-space: pre-line" th:text="${station}"></span>
-    <form method="GET" action="/admin/station">
-        <label>
-            <input type="text" name="stationId" placeholder="ID" required="required">
-        </label>
-
-        <label>
-            <input type="text" name="stationName" placeholder="Назва" required="required">
-        </label>
-
-        <tr>
-            <td><input type="submit" name="add" value="Добавити станцію" /></td>
-            <td><input type="submit" name="edit" value="Редагувати станцію за ID" /></td>
-            <td><input type="submit" name="delete" value="Видалити станцію за ID" /></td>
-        </tr>
+<body class="theme-default">
+<main>
+    <form class="p-t-165" method="GET" action="/admin/station">
+        <div class="wrapper wrapper--w1080 card-3">
+            <div class="card-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                            <div class="input-group1">
+                                <input class="input--style-1" type="text" name="stationId" placeholder="ID">
+                            </div>
+                            <div class="input-group1">
+                                <input class="input--style-1" type="text" name="stationName" placeholder="Назва">
+                            </div>
+                        <tr>
+                            <td><input class="button-back" type="submit" name="add" value="Добавити станцію" /></td>
+                            <td><input class="button-back" type="submit" name="edit" value="Редагувати станцію за ID" /></td>
+                            <td><input class="button-back" type="submit" name="delete" value="Видалити станцію за ID" /></td>
+                        </tr>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </form>
+    <div class="train-group-trains train-text">
+        <span style="white-space: pre-line" th:text="${station}"></span>
+    </div>
 
+</main>
 </body>
 </html>

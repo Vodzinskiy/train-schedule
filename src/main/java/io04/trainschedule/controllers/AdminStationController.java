@@ -27,19 +27,25 @@ public class AdminStationController {
 
     @GetMapping(value = "/admin/station", params = "add")
     public String add(String stationId, String stationName) {
-        stationService.save(new Station(Integer.parseInt(stationId), stationName));
+        if (!stationName.equals("") && !stationId.equals("")) {
+            stationService.save(new Station(Integer.parseInt(stationId), stationName));
+        }
         return "redirect:/admin/station";
     }
 
     @GetMapping(value = "/admin/station", params = "delete")
     public String delete(String stationId) {
-        stationService.delete(Integer.parseInt(stationId));
+        if (!stationId.equals("")) {
+            stationService.delete(Integer.parseInt(stationId));
+        }
         return "redirect:/admin/station";
     }
 
     @GetMapping(value = "/admin/station", params = "edit")
     public String edit(String stationId, String stationName) {
-        stationService.editName(Integer.parseInt(stationId), stationName);
+        if (!stationName.equals("") && !stationId.equals("")) {
+            stationService.editName(Integer.parseInt(stationId), stationName);
+        }
         return "redirect:/admin/station";
     }
 }
