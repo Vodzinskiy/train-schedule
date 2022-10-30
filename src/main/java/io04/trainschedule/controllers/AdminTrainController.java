@@ -74,6 +74,7 @@ public class AdminTrainController {
         model.addAttribute("trainStations", train.getSortedStations());
         model.addAttribute("stations", stationService.findAll().values());
         model.addAttribute("id", id);
+        model.addAttribute("trainName", trainService.findById(Integer.parseInt(id)));
         return "editTrain";
     }
 

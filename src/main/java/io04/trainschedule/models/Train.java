@@ -67,10 +67,8 @@ public class Train {
         HashMap<Station, ArrayList<DataTime>> trainStations = this.arrivalStations;
         List<Map.Entry<Station, ArrayList<DataTime>>> list = new LinkedList<>(trainStations.entrySet());
 
-        // Sort the list
         list.sort(Comparator.comparingInt(o -> (o.getValue().get(0).getIntegerOfTime())));
 
-        // put data from sorted list to hashmap
         HashMap<Station, ArrayList<DataTime>> temp = new LinkedHashMap<>();
         for (Map.Entry<Station, ArrayList<DataTime>> aa : list) {
             temp.put(aa.getKey(), aa.getValue());

@@ -16,8 +16,12 @@
         <div class="card-body">
             <div class="tab-content">
                 <div class="tab-pane active" id="tab1">
+                    <div class= "train-text">
+                        <span style="white-space: pre-line" th:text="${trainName}"></span>
+                    </div>
+                    <br>
                     <div class="input-group1">
-                        <select class="input--style-1" name="stations" >
+                        <select class="input--style-1 select-1" name="stations" >
                             <option th:each="station:${stations}" th:value="${station}" th:text="${station}"></option>
                         </select>
                     </div>
@@ -36,13 +40,15 @@
             </div>
         </div>
     </div>
-    <ol>
-        <li th:each="key: ${trainStations.keySet()}">
-            <span th:text="${key}"></span> : Час прибуття: <span th:text="${trainStations.get(key).get(0)}"></span> Час відправки: <span th:text="${trainStations.get(key).get(1)}"></span>
-
-        </li>
-    </ol>
-
+    <form>
+        <br>
+        <div class="wrapper wrapper--w720">
+            <div class="train-group-trains train-text" th:each="key: ${trainStations.keySet()}">
+                <span th:text="${key}"></span> :<br> Час прибуття: <span th:text="${trainStations.get(key).get(0)}"></span><br> Час відправки: <span th:text="${trainStations.get(key).get(1)}"></span>
+            </div>
+        </div>
+        <br>
+    </form>
 </form>
     <div class="button-context">
         <button class="button-back" onclick="window.location.href='/admin/train'" type="submit">Повернутись назад</button>
