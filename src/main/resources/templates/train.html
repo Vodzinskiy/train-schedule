@@ -2,21 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <title>Trains</title>
+    <link rel="stylesheet" th:href="@{/css/trains_and_admin.css}">
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 </head>
-<body>
-<form>
-<br>
-<ol>
-    <li th:each="key: ${trainStations.keySet()}">
-        <span th:text="${key}"></span> : Час прибуття: <span th:text="${trainStations.get(key).get(0)}"></span> Час відправки: <span th:text="${trainStations.get(key).get(1)}"></span>
+<body class="theme-default">
+<main>
+    <form>
 
-    </li>
-</ol>
-<br>
+        <br>
+        <div class="wrapper wrapper--w720">
+        <div class="train-group-trains train-text" th:each="key: ${trainStations.keySet()}">
+            <span th:text="${key}"></span> :<br> Час прибуття: <span th:text="${trainStations.get(key).get(0)}"></span><br> Час відправки: <span th:text="${trainStations.get(key).get(1)}"></span>
+        </div>
+        </div>
+        <br>
 
-</form>
-<button class="btn-submit" onclick="window.location.href='/'" type="submit">Готово</button>
+    </form>
+    <div class="button-context">
+    <button class="button-back" onclick="window.location.href='/'" type="submit">Повернутися на головне меню</button>
+    </div>
+</main>
 </body>
 </html>
