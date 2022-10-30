@@ -45,7 +45,6 @@ public class HomeController {
             Model model){
         List<Train> trains = trainFinderService.getSuitableTrain(stationService.findByName(stationOfDeparture), stationService.findByName(stationOfArrival), DataTime.stringToDataTime(dateTime));
         model.addAttribute("trains", trains);
-        System.out.println(trains);
         return "index";
     }
 
