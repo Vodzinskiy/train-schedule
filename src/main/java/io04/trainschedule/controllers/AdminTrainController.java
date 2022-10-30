@@ -32,7 +32,7 @@ public class AdminTrainController {
             temp.add(station.getName());
         }
 
-        model.addAttribute("trainsName", trainService.findAll().toString());
+        model.addAttribute("trainsName", trainService.findAll().values().toString().replaceAll("[\\[\\]]",""));
         model.addAttribute("stations", temp);
         model.addAttribute("trains",trainService.findAll().values());
         return "adminTrain";
@@ -40,14 +40,18 @@ public class AdminTrainController {
 
     @GetMapping(value = "/admin/train", params = "delete")
     public String delete(String trainId) {
-        trainService.delete(Integer.parseInt(trainId));
+        if (!trainId.equals("")) {
+            trainService.delete(Integer.parseInt(trainId));
+        }
         return "redirect:/admin/train";
     }
 
     @GetMapping(value = "/admin/train", params = "add")
     public String add(String trainId, String trainName) {
-        stations = new HashMap<>();
-        trainService.save(new Train(Integer.parseInt(trainId), trainName, stations));
+        if (!trainId.equals("") && !trainName.equals("")) {
+            stations = new HashMap<>();
+            trainService.save(new Train(Integer.parseInt(trainId), trainName, stations));
+        }
         return "redirect:/admin/train";
     }
 
