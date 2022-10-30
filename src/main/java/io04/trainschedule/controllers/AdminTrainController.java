@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 
 @Controller
 public class AdminTrainController {
@@ -51,6 +52,17 @@ public class AdminTrainController {
         if (!trainId.equals("") && !trainName.equals("")) {
             stations = new HashMap<>();
             trainService.save(new Train(Integer.parseInt(trainId), trainName, stations));
+        }
+        return "redirect:/admin/train";
+    }
+
+    @GetMapping(value = "/admin/train", params = "edit")
+    public String edit(String trainId, String trainName) {
+        if (!trainId.equals("")) {
+            if (!trainName.equals("")) {
+                trainService.findById(Integer.parseInt(trainId)).setName(trainName);
+            }
+            return "redirect:/admin/train/" + trainId;
         }
         return "redirect:/admin/train";
     }

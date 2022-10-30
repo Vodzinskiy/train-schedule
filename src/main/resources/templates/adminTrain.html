@@ -26,7 +26,8 @@
                     </div>
                         <tr>
                             <td><input class="button-back" type="submit" name="add" value="Добавити потяг" /></td>
-                            <td><input class="button-back" type="button" onclick="redirect()" value="Редагувати потяг"></td>
+                            <td><input class="button-back" type="submit" name="edit" value="Редагувати потяг" /></td>
+                           <!-- <td><input class="button-back" type="button" onclick="redirect()" value="Редагувати потяг"></td>-->
                             <td><input class="button-back" type="submit" name="delete" value="Видалити потяг за ID" /></td>
                         </tr>
                 </div>
@@ -39,14 +40,14 @@
     <div class="train-group-trains train-text">
     <span style="white-space: pre-line" th:text="${trainsName}"></span>
     </div>
-    <script type="text/javascript">
+    <!--<script type="text/javascript">
         function redirect() {
             let id = document.getElementById("trainId").value;
             if (id !== "") {
                 window.location.href = "/admin/train/" + id;
             }
         }
-    </script>
+    </script>-->
 
 </main>
 </body>
