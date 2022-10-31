@@ -19,7 +19,7 @@
 
         <br>
         <div class="wrapper wrapper--w720">
-        <div class="train-group-trains train-text" th:each="key: ${trainStations.keySet()}">
+        <div class="train-group-trains text-1" th:each="key: ${trainStations.keySet()}">
             <span th:text="${key}"></span> :<br> Час прибуття: <span th:text="${trainStations.get(key).get(0)}"></span><br> Час відправки: <span th:text="${trainStations.get(key).get(1)}"></span>
         </div>
         </div>

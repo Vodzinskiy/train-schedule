@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.stream.Collectors;
 
-
-
 @Controller
 public class AdminStationController {
 
@@ -27,7 +25,7 @@ public class AdminStationController {
 
     @GetMapping(value = "/admin/station", params = "add")
     public String add(String stationId, String stationName) {
-        if (!stationName.equals("") && !stationId.equals("")) {
+        if (!stationName.equals("") && !stationId.equals("") && !stationService.findAll().containsKey(Integer.parseInt(stationId))) {
             stationService.save(new Station(Integer.parseInt(stationId), stationName));
         }
         return "redirect:/admin/station";

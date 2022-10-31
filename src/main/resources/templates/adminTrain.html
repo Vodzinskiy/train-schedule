@@ -13,41 +13,33 @@
 <body class="theme-default">
 <main>
 
-<form class="p-t-165">
+<form class="p-t-50">
     <div class="wrapper wrapper--w1080 card-3">
         <div class="card-body">
             <div class="tab-content">
                 <div class="tab-pane active" id="tab1">
                     <div class="input-group1">
-                            <input class="input--style-1" type="text" name="trainId" id="trainId" placeholder="ID">
+                        <label for="trainId"></label><input class="input--style-1" type="text" name="trainId" id="trainId" placeholder="ID">
                     </div>
                     <div class="input-group1">
+                        <label>
                             <input class="input--style-1" type="text" name="trainName" placeholder="Назва">
+                        </label>
                     </div>
                         <tr>
                             <td><input class="button-back" type="submit" name="add" value="Добавити потяг" /></td>
-                            <td><input class="button-back" type="button" onclick="redirect()" value="Редагувати потяг"></td>
+                            <td><input class="button-back" type="submit" name="edit" value="Редагувати потяг" /></td>
                             <td><input class="button-back" type="submit" name="delete" value="Видалити потяг за ID" /></td>
                         </tr>
                 </div>
             </div>
         </div>
     </div>
-
 </form>
 
-    <div class="train-group-trains train-text">
+    <div class="train-group-trains text-1">
     <span style="white-space: pre-line" th:text="${trainsName}"></span>
     </div>
-    <script type="text/javascript">
-        function redirect() {
-            let id = document.getElementById("trainId").value;
-            if (id !== "") {
-                window.location.href = "/admin/train/" + id;
-            }
-        }
-    </script>
-
-</main>
+  </main>
 </body>
 </html>

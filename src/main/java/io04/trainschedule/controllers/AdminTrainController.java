@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
 @Controller
 public class AdminTrainController {
 
@@ -22,8 +23,6 @@ public class AdminTrainController {
 
     @Autowired
     StationService stationService;
-
-    private HashMap<Station, ArrayList<DataTime>> stations = new HashMap<>();
 
     @GetMapping("/admin/train")
     public String adminTrain(Model model) {
@@ -48,9 +47,20 @@ public class AdminTrainController {
 
     @GetMapping(value = "/admin/train", params = "add")
     public String add(String trainId, String trainName) {
-        if (!trainId.equals("") && !trainName.equals("")) {
-            stations = new HashMap<>();
+        if (!trainId.equals("") && !trainName.equals("") && !trainService.findAll().containsKey(Integer.parseInt(trainId))) {
+            HashMap<Station, ArrayList<DataTime>> stations = new HashMap<>();
             trainService.save(new Train(Integer.parseInt(trainId), trainName, stations));
+        }
+        return "redirect:/admin/train";
+    }
+
+    @GetMapping(value = "/admin/train", params = "edit")
+    public String edit(String trainId, String trainName) {
+        if (!trainId.equals("")) {
+            if (!trainName.equals("")) {
+                trainService.findById(Integer.parseInt(trainId)).setName(trainName);
+            }
+            return "redirect:/admin/train/" + trainId;
         }
         return "redirect:/admin/train";
     }
@@ -62,6 +72,7 @@ public class AdminTrainController {
         model.addAttribute("trainStations", train.getSortedStations());
         model.addAttribute("stations", stationService.findAll().values());
         model.addAttribute("id", id);
+        model.addAttribute("trainName", trainService.findById(Integer.parseInt(id)));
         return "editTrain";
     }
 
@@ -79,5 +90,4 @@ public class AdminTrainController {
         train.removeStation(stationService.findByName(stations));
         return "redirect:/admin/train/"+id;
     }
-
 }

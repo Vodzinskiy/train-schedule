@@ -41,6 +41,6 @@ public class DataTime {
 
     @Override
     public String toString() {
-        return day + "." + month + " " + Integer.toString(hour).replaceAll("^\\d{1}$","0"+hour) + ":" + Integer.toString(minute).replaceAll("^\\d{1}$","0"+minute);
+        return day + "." + month + " " + Integer.toString(hour).replaceAll("^\\d$","0"+hour) + ":" + Integer.toString(minute).replaceAll("^\\d$","0"+minute);
     }
 }

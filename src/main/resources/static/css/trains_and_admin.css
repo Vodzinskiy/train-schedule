@@ -1,7 +1,9 @@
 
 .train-group {
-  background-color: #298391;
+  background-color: #28304A;
   color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -12,11 +14,20 @@
   box-sizing: border-box;
 }
 
-.train-text {
+
+.text-1 {
   color: white;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 30px;
   text-align: center;
+}
+
+.text-2 {
+  color: #28304A;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 30px;
 }
 
 .train-group-trains {
@@ -26,8 +37,7 @@
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  margin: auto;
-  margin-top: 40px;
+  margin: 40px auto auto;
   box-sizing: border-box;
 }
 
@@ -77,5 +87,10 @@
 
 .button-admin-right {
   margin-right: 25%;
+}
+
+.select-1 {
+  border: 0;
+  outline: 0;
 }
 

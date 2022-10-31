@@ -29,9 +29,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String mainHtml(Model model){
-
-
-
+        model.addAttribute("textLabel", "Всі потяги:");
         model.addAttribute("trains", trainService.findAll().values());
         return "index";
     }
@@ -44,8 +42,8 @@ public class HomeController {
            String dateTime,
             Model model){
         List<Train> trains = trainFinderService.getSuitableTrain(stationService.findByName(stationOfDeparture), stationService.findByName(stationOfArrival), DataTime.stringToDataTime(dateTime));
+        model.addAttribute("textLabel", "Потяги для маршруту: " + stationOfDeparture + " → " + stationOfArrival);
         model.addAttribute("trains", trains);
-        System.out.println(trains);
         return "index";
     }
 
