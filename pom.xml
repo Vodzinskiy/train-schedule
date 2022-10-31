@@ -9,12 +9,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io-04</groupId>
-    <artifactId>News-portal</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>News-portal</name>
-    <description>News-portal</description>
+    <artifactId>train-schedule</artifactId>
+    <version>1</version>
+    <name>train-schedule</name>
+    <description>train-schedule</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>1.8</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -40,14 +40,12 @@
     </dependencies>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
     </build>
-
 </project>
+
