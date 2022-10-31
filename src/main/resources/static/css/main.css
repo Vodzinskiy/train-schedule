@@ -71,12 +71,17 @@ a:active {
 
 
 
-.p-t-165 {
+.p-t-50 {
   padding-top: 50px;
 }
 
+.p-b-100 {
+  padding-bottom: 100px;
+}
+
+
 @media (max-width: 767px) {
-  .p-t-165 {
+  .p-t-50 {
     padding-top: 50px;
   }
 }

@@ -47,7 +47,7 @@ public class AdminTrainController {
 
     @GetMapping(value = "/admin/train", params = "add")
     public String add(String trainId, String trainName) {
-        if (!trainId.equals("") && !trainName.equals("")) {
+        if (!trainId.equals("") && !trainName.equals("") && !trainService.findAll().containsKey(Integer.parseInt(trainId))) {
             HashMap<Station, ArrayList<DataTime>> stations = new HashMap<>();
             trainService.save(new Train(Integer.parseInt(trainId), trainName, stations));
         }
@@ -90,5 +90,4 @@ public class AdminTrainController {
         train.removeStation(stationService.findByName(stations));
         return "redirect:/admin/train/"+id;
     }
-
 }

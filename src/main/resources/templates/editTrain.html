@@ -11,25 +11,31 @@
 </head>
 <body class="theme-default">
 <main>
-<form class="p-t-165">
+<form class="p-t-50 ">
     <div class="wrapper wrapper--w1080 card-3">
         <div class="card-body">
             <div class="tab-content">
                 <div class="tab-pane active" id="tab1">
-                    <div class= "train-text">
+                    <div class= "text-1">
                         <span style="white-space: pre-line" th:text="${trainName}"></span>
                     </div>
                     <br>
                     <div class="input-group1">
-                        <select class="input--style-1 select-1" name="stations" >
-                            <option th:each="station:${stations}" th:value="${station}" th:text="${station}"></option>
-                        </select>
+                        <label>
+                            <select class="input--style-1 select-1" name="stations" >
+                                <option th:each="station:${stations}" th:value="${station}" th:text="${station}"></option>
+                            </select>
+                        </label>
                     </div>
                     <div class="input-group1">
-                        <input class="input--style-1" type="text" name="timeArr" placeholder="Час прибуття">
+                        <label>
+                            <input class="input--style-1" type="text" name="timeArr" placeholder="Час прибуття">
+                        </label>
                     </div>
                     <div class="input-group1">
-                        <input class="input--style-1" type="text" name="timeDep" placeholder="Чаc відправки">
+                        <label>
+                            <input class="input--style-1" type="text" name="timeDep" placeholder="Чаc відправки">
+                        </label>
                     </div>
                     <tr>
                         <td><input class="button-back" type="submit" name="addStation" value="Добавити станцію" /></td>
@@ -43,14 +49,14 @@
     <form>
         <br>
         <div class="wrapper wrapper--w720">
-            <div class="train-group-trains train-text" th:each="key: ${trainStations.keySet()}">
+            <div class="train-group-trains text-1" th:each="key: ${trainStations.keySet()}">
                 <span th:text="${key}"></span> :<br> Час прибуття: <span th:text="${trainStations.get(key).get(0)}"></span><br> Час відправки: <span th:text="${trainStations.get(key).get(1)}"></span>
             </div>
         </div>
         <br>
     </form>
 </form>
-    <div class="button-context">
+    <div class="button-context p-b-100">
         <button class="button-back" onclick="window.location.href='/admin/train'" type="submit">Повернутись назад</button>
     </div>
 </main>

@@ -40,7 +40,6 @@ public class Station {
     public void removeTrain(Train train){trains.remove(train);}
 
 
-
     @Override
     public String toString() {
         return name;
