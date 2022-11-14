@@ -12,7 +12,11 @@
 <body class="theme-default">
 <main>
     <th:block th:if="${trains.findById(id) == null}">
-        2342
+        <div class="wrapper wrapper--w720">
+            <div class=" train-group-trains text-1">
+                <span>Потяг не знайдено</span>
+            </div>
+        </div>
     </th:block>
     <th:block th:if="${trains.findById(id) != null}">
         <form class="p-t-50 ">
