@@ -54,14 +54,16 @@
                 <p class="text-2" th:text="${textLabel}"></p>
             </div>
 
-            <div class="train-group" th:if="${#lists.size(trains)}=='0'">
-                <p class="text-1">Trains not found</p>
-            </div>
-            <div th:unless="${#lists.size(trains)}=='0'">
-                <div class="train-group text-1" th:each="train: ${trains}">
-                    <a class=" text-1" th:href="'trains/' + ${train.getId()}" th:text="${train}"></a>
+            <th:block th:switch="${#lists.size(trains)}">
+                <div class="train-group" th:case="0">
+                    <p class="text-1">Потягів не знайдено</p>
                 </div>
-            </div>
+                <div th:case="*">
+                    <div class="train-group text-1" th:each="train: ${trains}">
+                        <a class=" text-1" th:href="'trains/' + ${train.getId()}" th:text="${train}"></a>
+                    </div>
+                </div>
+            </th:block>
         </div>
     </div>
 

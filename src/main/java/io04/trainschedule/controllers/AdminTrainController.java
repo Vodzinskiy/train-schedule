@@ -69,10 +69,12 @@ public class AdminTrainController {
     public String edit(@PathVariable("id") String id, Model model) {
         Train train = trainService.findById(Integer.parseInt(id));
 
-        model.addAttribute("trainStations", train.getSortedStations());
-        model.addAttribute("stations", stationService.findAll().values());
+        if (train != null) {
+            model.addAttribute("trainStations", train.getSortedStations());
+            model.addAttribute("stations", stationService.findAll().values());
+        }
         model.addAttribute("id", id);
-        model.addAttribute("trainName", trainService.findById(Integer.parseInt(id)));
+        model.addAttribute("trains", trainService);
         return "editTrain";
     }
 
@@ -86,6 +88,7 @@ public class AdminTrainController {
 
     @GetMapping(value = "/admin/train/{id}", params = "deleteStation")
     public String deleteStation(@PathVariable String id, String stations) {
+
         Train train = trainService.findById(Integer.parseInt(id));
         train.removeStation(stationService.findByName(stations));
         return "redirect:/admin/train/"+id;
