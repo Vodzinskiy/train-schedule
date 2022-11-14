@@ -34,7 +34,9 @@ public class AdminStationController {
     @GetMapping(value = "/admin/station", params = "delete")
     public String delete(String stationId) {
         if (!stationId.equals("")) {
-            stationService.delete(Integer.parseInt(stationId));
+            try {
+                stationService.delete(Integer.parseInt(stationId));
+            }catch(Exception ignored){}
         }
         return "redirect:/admin/station";
     }
@@ -42,7 +44,9 @@ public class AdminStationController {
     @GetMapping(value = "/admin/station", params = "edit")
     public String edit(String stationId, String stationName) {
         if (!stationName.equals("") && !stationId.equals("")) {
-            stationService.editName(Integer.parseInt(stationId), stationName);
+            try {
+                stationService.editName(Integer.parseInt(stationId), stationName);
+            }catch(Exception ignored){}
         }
         return "redirect:/admin/station";
     }

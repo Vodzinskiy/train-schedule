@@ -40,7 +40,9 @@ public class AdminTrainController {
     @GetMapping(value = "/admin/train", params = "delete")
     public String delete(String trainId) {
         if (!trainId.equals("")) {
-            trainService.delete(Integer.parseInt(trainId));
+            try {
+                trainService.delete(Integer.parseInt(trainId));
+            }catch(Exception ignored){}
         }
         return "redirect:/admin/train";
     }
@@ -58,7 +60,9 @@ public class AdminTrainController {
     public String edit(String trainId, String trainName) {
         if (!trainId.equals("")) {
             if (!trainName.equals("")) {
-                trainService.findById(Integer.parseInt(trainId)).setName(trainName);
+                try {
+                    trainService.findById(Integer.parseInt(trainId)).setName(trainName);
+                }catch(Exception ignored){}
             }
             return "redirect:/admin/train/" + trainId;
         }
@@ -90,7 +94,9 @@ public class AdminTrainController {
     public String deleteStation(@PathVariable String id, String stations) {
 
         Train train = trainService.findById(Integer.parseInt(id));
-        train.removeStation(stationService.findByName(stations));
+        if (train != null) {
+            train.removeStation(stationService.findByName(stations));
+        }
         return "redirect:/admin/train/"+id;
     }
 }
