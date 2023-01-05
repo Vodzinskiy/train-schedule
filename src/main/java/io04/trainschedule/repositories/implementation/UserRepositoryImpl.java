@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
-    private final Map<Integer, User> repository;
+    TreeMap<Integer, User> repository;
 
     public UserRepositoryImpl() {
         repository = new TreeMap<>();
@@ -23,6 +23,7 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User save(User user) {
         repository.put(user.getId(), user);
+        return user;
     }
 
     @Override
@@ -40,13 +41,53 @@ public class UserRepositoryImpl implements UserRepository {
         return null;
     }
 
+//    @Override
+//    public User findByEmail(String email) {
+//        Collection<User> users = repository.values();
+//        for (User user : users) {
+//            if (user.getEmail().equalsIgnoreCase(email))
+//                return user;
+//        }
+//        return null;
+//    }
+
     @Override
-    public User findByEmail(String email) {
-        Collection<User> users = repository.values();
-        for (User user : users) {
-            if (user.getEmail().equalsIgnoreCase(email))
-                return user;
+    public ArrayList<User> findAll(int page, int size, String emailType) {
+        ArrayList<ArrayList<User>> pageOfUsers = new ArrayList<>();
+        ArrayList<User> users = new ArrayList<>();
+        if (Objects.equals(emailType, "")) {
+            users = new ArrayList<>(repository.values());
+        } else {
+            Pattern pattern = Pattern.compile("(?<=@)[^.]+(?=\\.)");
+            for (User u: repository.values()) {
+                Matcher matcher = pattern.matcher(u.getEmail());
+                if (matcher.find()) {
+                    if (matcher.group().equals(emailType)) {
+                        users.add(u);
+                    }
+                }
+            }
+            if (users.isEmpty()) {
+                return users;
+            }
         }
-        return null;
+        int count = 0;
+        for (int i = 0; i < page; i++) {
+            ArrayList<User> slice = new ArrayList<>();
+            for (int j = count; j < count + size; j++) {
+                slice.add(users.get(j));
+                if (j == users.size() - 1) {
+                    break;
+                }
+            }
+            count += size;
+            pageOfUsers.add(slice);
+        }
+        return pageOfUsers.get(page - 1);
+    }
+
+    @Override
+    public User removeById(int id){
+        return repository.remove(id);
     }
 }

@@ -38,8 +38,8 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
+//                ", password='" + password + '\'' +
+//                ", email='" + email + '\'' +
                 '}';
     }
 }
