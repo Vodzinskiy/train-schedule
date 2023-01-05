@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/trains")
+@RequestMapping("/trains_rest")
 public class MainRestController {
 
     @Autowired
