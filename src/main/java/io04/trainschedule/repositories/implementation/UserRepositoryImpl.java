@@ -4,20 +4,24 @@ import io04.trainschedule.models.User;
 import io04.trainschedule.repositories.UserRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Repository
 public class UserRepositoryImpl implements UserRepository {
     private final Map<Integer, User> repository;
 
     public UserRepositoryImpl() {
-        this.repository = new HashMap<>();
+        repository = new TreeMap<>();
+        repository.put(1, new User(1, "Roma", "roma@gmail.com"));
+        repository.put(2, new User(2, "Dima", "dima@gmail.com"));
+        repository.put(3, new User(3, "Arsen", "arsen@NEgmail.com"));
+        repository.put(4, new User(4, "Vlad", "roma@tempmail.com"));
     }
 
     @Override
-    public void save(User user) {
+    public User save(User user) {
         repository.put(user.getId(), user);
     }
 

@@ -31,7 +31,7 @@ public class DataTime {
 
     public static DataTime stringToDataTime(String data) {
 
-        String[] temp =  data.split("[: .]");
+        String[] temp =  data.split("[:.]");
         int[] dateTime = new int[4];
         for(int i = 0; i < temp.length; i++){
             dateTime[i] = Integer.parseInt(temp[i]);
