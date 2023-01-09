@@ -303,7 +303,24 @@ public class PersonService {
     }
 
 }
+
 ```
+
+## Контрольні питання 
+
+1. Поясніть різницю між JDBC та JdbcTemplate.
+
+Java DataBase Connectivity, скорочено JDBC — прикладний програмний інтерфейс Java, який визначає методи, з допомогою яких програмне забезпечення на Java здійснює доступ до бази даних в той час як JdbcTemplate являється центральним класом який виконує робочий процес JDBC.
+
+2. Одним з найбільших плюсів prepared statement є екранування. Щось схоже ми мали з шаблонізаторами у ЛР3. Prepared statement цим шляхом надає захист від SQL injection - атаками зумовленими ін'єкціями мови SQL у базу даних.
+
+3. Поясніть різницю між методами execute(), executeQuery() та executeUpdate() класу PreparedStatement.
+
+__execute()__ - виконує оператор SQL у цьому об’єкті Prepared Statement, який може бути будь-яким видом оператора SQL.
+
+__executeQuery()__ - виконує SQL-запит у цьому об’єкті Prepared Statement і повертає об’єкт ResultSet, згенерований запитом.
+
+__executeUpdate()__ - 
 
 
 
