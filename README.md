@@ -340,13 +340,18 @@ KeyHolder - iнтерфейс для отримання ключів, зазви
 
 Transaction propagation вказує, чи буде будь-який компонент або сервіс брати участь у транзакції чи ні, і як він поводитиметься, якщо викликаючий компонент/сервіс вже створив або не створив транзакцію. Усього в Spring Framework є 7 механізмів транзакцій. 
 
-MANDATORY|Support a current transaction, throw an exception if none exists.
+<div align="center">
+
+Метод | Опис
+  --- | ---
+MANDATORY | Support a current transaction, throw an exception if none exists.
 NESTED | Execute within a nested transaction if a current transaction exists, behave like REQUIRED otherwise.
 NEVER | Execute non-transactionally, throw an exception if a transaction exists.
 NOT_SUPPORTED | Execute non-transactionally, suspend the current transaction if one exists.
 REQUIRED | Support a current transaction, create a new one if none exists.
 REQUIRES_NEW | Create a new transaction, and suspend the current transaction if one exists.
 SUPPORTS | Support a current transaction, execute non-transactionally if none exists.
+</div>
 
 За замовчуванням використовується механізм Required оскільки він є найбільш універсальним. 
 
