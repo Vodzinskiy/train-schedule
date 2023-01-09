@@ -342,15 +342,15 @@ Transaction propagation вказує, чи буде будь-який компо
 
 <div align="center">
 
-Метод | Опис
+Механізм | Опис
   --- | ---
-MANDATORY | Support a current transaction, throw an exception if none exists.
-NESTED | Execute within a nested transaction if a current transaction exists, behave like REQUIRED otherwise.
-NEVER | Execute non-transactionally, throw an exception if a transaction exists.
-NOT_SUPPORTED | Execute non-transactionally, suspend the current transaction if one exists.
-REQUIRED | Support a current transaction, create a new one if none exists.
-REQUIRES_NEW | Create a new transaction, and suspend the current transaction if one exists.
-SUPPORTS | Support a current transaction, execute non-transactionally if none exists.
+MANDATORY | Підтримує поточну транзакції, створює вийняток, якщо такої не існує.
+NESTED | Виконування в межах вкладеної транзакції, якщо поточна транзакція існує, в іншому випадку поводиться як REQUIRED.
+NEVER | Виконання без транзакцій, створює виняток, якщо транзакція існує.
+NOT_SUPPORTED | Виконує без транзакцій, призупиняє поточну транзакцію, якщо вона існує.
+REQUIRED | Підтримує поточну транзакцію, створює нову якщо немає жодної.
+REQUIRES_NEW | Створює нову транзакцію та призупинє поточну транзакцію, якщо така існує.
+SUPPORTS | Підтримує поточну транзакцію, виконанує без транзакції, якщо такої не існує.
 </div>
 
 За замовчуванням використовується механізм Required оскільки він є найбільш універсальним. 
